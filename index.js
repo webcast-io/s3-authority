@@ -1,4 +1,8 @@
 
+/**
+ * 
+ */
+
 var crypto = require('crypto');
 var mime = require('mime');
 
@@ -118,7 +122,7 @@ this.writePolicy = function(key, bucket, duration, filesize, acl, cb) {
     s3Signature:signature.digest("base64"),
     s3Key:accessKey,
     acl:acl,
-    mine:mime.lookup(key)
+    mime:mime.lookup(key)
   };
   return s3Credentials;
 
