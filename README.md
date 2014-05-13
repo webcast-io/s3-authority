@@ -1,4 +1,4 @@
-# S3 Authority [![Build Status](https://travis-ci.org/webcast-io/s3-authority.svg?branch=master)](https://travis-ci.org/webcast-io/s3-authority)
+# S3 Authority [![Build Status](https://travis-ci.org/webcast-io/s3-authority.svg?branch=master)](https://travis-ci.org/webcast-io/s3-authority) [![Code Climate](https://codeclimate.com/github/webcast-io/s3-authority.png)](https://codeclimate.com/github/webcast-io/s3-authority)
 
 S3 Read/Write Policy Generator.
 
