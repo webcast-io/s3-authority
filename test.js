@@ -22,6 +22,21 @@ describe('S3Authority', function() {
       }, /secretKey/);
     });
 
+    it('should accept `new` create call', function() {
+      assert(new S3Authority({
+        accessKey: 'asdsad',
+        secretKey: 'asdsadas'
+      }) instanceof S3Authority);
+    });
+
+    it('should accept `()` create call', function() {
+      assert(new S3Authority({
+        accessKey: 'asdsad',
+        secretKey: 'asdsadas'
+      }) instanceof S3Authority);
+    });
+
+
   });
 
   describe('readPolicy()', function() {
