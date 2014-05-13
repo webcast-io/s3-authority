@@ -34,8 +34,8 @@
   },
   "homepage": "https://github.com/webcast-io/s3-authority",
   "contributors": [
-    {
-      "url": "https://github.com/cwintzer",
-    }
+  {
+    "url": "https://github.com/cwintzer"
+  }
   ]
 }
