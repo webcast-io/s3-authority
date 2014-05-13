@@ -45,6 +45,13 @@ describe('S3Authority', function() {
 
   describe('writePolicy()', function() {
 
+    it('should error if missing bucket');
+    it('should error if missing key');
+    it('should error if missing bucket');
+    it('should error if missing duration');
+    it('should error if missing filesize');
+    it('should error if missing acl');
+
   });
 
 

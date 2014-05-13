@@ -1,10 +1,11 @@
 
 /**
- * 
+ * Deps
  */
 
-var crypto = require('crypto');
-var mime = require('mime');
+var crypto   = require('crypto');
+var mime     = require('mime');
+var defaults = require('defaults');
 
 /**
  * Helpers
@@ -55,6 +56,8 @@ var mime = require('mime');
 };
 
 S3Authority.prototype.readPolicy = function(options) {
+  options = defaults(options, this.options);
+
   var dateObj = new Date();
   var expiration = new Date(dateObj.getTime() + duration * 1000);
   expiration = Math.round(expiration.getTime() / 1000);
@@ -90,7 +93,9 @@ S3Authority.prototype.readPolicy = function(options) {
 };
 
 
-this.writePolicy = function(key, bucket, duration, filesize, acl, cb) {
+this.writePolicy = function(options) {
+
+  options = defaults(options, this.options);
 
   // options = {
   //   key, bucket, duration, filesize, acl
