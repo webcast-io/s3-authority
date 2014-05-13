@@ -1,21 +1,41 @@
 {
-    "author": "Chad Wintzer <cwintzer@gmail.com>",
-    "name": "s3policy",
-    "description": "S3 Upload/Download Policy Generator for Node.js",
-    "version": "0.0.1",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/cwintzer/s3policy"
-    },
-    "main": "./main",
-    "keywords": [
-        "s3", "aws", "amazon"
-    ],
-    "dependencies" : {
-        "mime": "1.2.x"
-    },
-    "license": "MIT",
-    "engines": {
-        "node": ">=0.6"
+  "name": "s3-authority",
+  "version": "0.0.0",
+  "description": "S3 Policy Writer",
+  "main": "index.js",
+  "dependencies": {
+    "mime": "^1.2.11"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2"
+  },
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/webcast-io/s3-authority.git"
+  },
+  "keywords": [
+    "S3",
+    "AWS",
+    "Amazon",
+    "ACL",
+    "Policy",
+    "Client",
+    "Side",
+    "Upload",
+    "View"
+  ],
+  "author": "Ben Evans <ben@bensbit.co.uk> (http://bensbit.co.uk)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webcast-io/s3-authority/issues"
+  },
+  "homepage": "https://github.com/webcast-io/s3-authority",
+  "contributors": [
+    {
+      "url": "https://github.com/cwintzer",
     }
+  ]
 }
