@@ -4,7 +4,7 @@
   "description": "S3 Policy Writer",
   "main": "index.js",
   "dependencies": {
-    "mime": "^1.2.11"
+    "mime": "1.x"
   },
   "devDependencies": {
     "mocha": "^1.18.2"
