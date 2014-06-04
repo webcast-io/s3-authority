@@ -40,8 +40,7 @@ var defaults = require('defaults');
  * S3Authority "Class"
  * @param {Object} options required .accessKey and .secretKey. A default .bucket is optional
  */
- var S3Authority = function(options) {
-  if(!this instanceof S3Authority) return new S3Authority(options);
+var S3Authority = function(options) {
 
   if (!options.accessKey || !options.secretKey) {
     throw new Error('Both `accessKey` & `secretKey` must be given (you may also want `bucket`)');
@@ -93,27 +92,27 @@ S3Authority.prototype.readPolicy = function(options) {
 };
 
 
-this.writePolicy = function(options) {
+S3Authority.prototype.writePolicy = function(options) {
 
-  options = defaults(options, this.options);
+  options = defaults(options, this);
 
   // options = {
   //   key, bucket, duration, filesize, acl
   // }
 
   var dateObj = new Date();
-  var dateExp = new Date(dateObj.getTime() + duration * 1000);
+  var dateExp = new Date(dateObj.getTime() + options.duration * 1000);
   var policy = {
     'expiration': generateExpiry(options.expiry),
     'conditions':[
     {
-      'bucket': bucket
+      'bucket': options.bucket
     },
     ['starts-with','$key","uploads/'],
     {
-      "acl": acl
+      "acl": options.acl
     },
-    ['content-length-range', 0, filesize * 1000000],
+    ['content-length-range', 0, options.filesize * 1000000],
     ['starts-with','$Content-Type','']
     ]
   };
@@ -126,13 +125,17 @@ this.writePolicy = function(options) {
     s3PolicyBase64:policyBase64,
     s3Signature:signature.digest("base64"),
     s3Key:accessKey,
-    acl:acl,
-    mime:mime.lookup(key)
+    acl:options.acl,
+    mime: options.mime || mime.lookup(options.key)
   };
+
   return s3Credentials;
 
 };
 
 
 
-module.exports = S3Authority;
+module.exports = function(options) {
+  return new S3Authority(options);
+};
+module.exports.S3Authority = S3Authority;
